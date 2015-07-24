@@ -1,0 +1,17 @@
+<map edf:definitions="editor_main">
+    <object id="object (elecfence_BAR) (3)" breakable="true" interior="0" alpha="255" model="987" doublesided="false" scale="1" dimension="0" posX="2728.3999" posY="-2341.8999" posZ="12.6" rotX="0" rotY="0" rotZ="269.995"></object>
+    <object id="object (elecfence_BAR) (4)" breakable="true" interior="0" alpha="255" model="987" doublesided="false" scale="1" dimension="0" posX="2728.3999" posY="-2329.8999" posZ="12.6" rotX="0" rotY="0" rotZ="269.995"></object>
+    <object id="object (chinagate) (1)" breakable="true" interior="0" alpha="255" model="9482" doublesided="false" scale="1" dimension="0" posX="2703.5" posY="-2405.30005" posZ="19.2" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (1)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2703.8999" posY="-2413.19995" posZ="12.6" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (2)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2703.5" posY="-2397.6001" posZ="12.6" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (3)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2716.80005" posY="-2413.1001" posZ="12.6" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (4)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2717" posY="-2397.5" posZ="12.6" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (5)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2730.19995" posY="-2412.5" posZ="12.6" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (6)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2729.69995" posY="-2397.30005" posZ="12.6" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (7)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2745.80005" posY="-2413.69995" posZ="12.7" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (chinalamp_sf) (8)" breakable="true" interior="0" alpha="255" model="1568" doublesided="false" scale="1" dimension="0" posX="2747.69995" posY="-2398.80005" posZ="12.6" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (stuntramp7_las2) (1)" breakable="true" interior="0" alpha="255" model="5153" doublesided="false" scale="1" dimension="0" posX="2819.00098" posY="-2392.1001" posZ="11.46" rotX="0" rotY="30.497" rotZ="0.5"></object>
+    <object id="object (stuntramp7_las2) (2)" breakable="true" interior="0" alpha="255" model="5153" doublesided="false" scale="1" dimension="0" posX="2812.90015" posY="-2392.1001" posZ="12.19" rotX="0" rotY="30" rotZ="0.5"></object>
+    <object id="object (stuntramp7_las2) (3)" breakable="true" interior="0" alpha="255" model="5153" doublesided="false" scale="1" dimension="0" posX="2815" posY="-2392.09985" posZ="11.95" rotX="0" rotY="30.497" rotZ="0.5"></object>
+    <object id="object (chinagate) (2)" breakable="true" interior="0" alpha="255" model="9482" doublesided="false" scale="1" dimension="0" posX="2561.30005" posY="-2503.80005" posZ="19.1" rotX="0" rotY="0" rotZ="0"></object>
+</map>

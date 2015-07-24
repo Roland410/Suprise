@@ -1,0 +1,13 @@
+<meta>
+	<info author="vG MTA Scripting Team" type="script" description="Gates"/>  
+	<script src="pdajto.lua" type="server"/>
+	<script src="pdajto1.lua" type="server"/>
+	<script src="lvpdajto.lua" type="server"/>
+	<script src="lvpdajto1.lua" type="server"/>
+	<script src="pdkapu.lua" type="server"/>
+	<script src="pdkapu1.lua" type="server"/>
+	<script src="bank.lua" type="server"/>
+	<script src="katonasag.lua" type="server"/>
+	<script src="alarm.lua" type="client"/>
+	<file src="alarm.mp3" />
+</meta>

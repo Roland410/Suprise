@@ -1,0 +1,6 @@
+<content>
+    <pageLength>300</pageLength>
+	<title>NPC-k(Non-Playable Characters)</title>
+	<text>Az egész városban találsz NPC-ket (ezek nem játékosok hanem a számítógép generálja őket). Az NPC-k csak azért vannak hogy rajtuk keresztül egy funkciót elérj a szerveren. Egy ilyen funkció eléréséhez csak nyomd meg az 'M' betűt és a kurzorral jobb klikkelj rájuk. Az NPC-k menüje így meg fog jelenni a hozzájuk tartozó interakcióval. Úgy kell viselkedned az NPC-kel mintha más játékosok lennének. Tehát ne ütögesd, rugdosd vagy lődd le őket.</text>
+
+</content>

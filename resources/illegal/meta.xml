@@ -1,0 +1,6 @@
+<meta>
+	<info author="vG MTA Scripting Team" type="script" description="illegal System"/>
+
+	<script src="s_illegal_system.lua" type="server"/>
+	<script src="paintball.lua" type="server"/>
+</meta>

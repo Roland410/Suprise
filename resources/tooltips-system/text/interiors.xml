@@ -1,0 +1,16 @@
+<content>
+    <pageLength>300</pageLength>
+	<title>Belterek(Interiorok)</title>
+	<text>Belterek(Interiorok)
+A beltereket három különálló kategóriába sorolhatjuk: házak, üzletek és olyanok melyeket nem tudsz megszerezni. Ha belépsz egy beltér beléptető pontjához(Fehér nyíl) megjelenik a beltér neve(Pl. Városháza),a cím , a tulajdonos neve és az ára ezeket a képernyő alján látod.
+
+Házak
+A házak előtt zöld ház ikon jelenik meg akkor amikor megvehető/kibérelhető állapotban vannak. Amennyiben megvásárlásra, vagy bérlésre kerül abban az esetben a zöld ház ikon egy fehér nyílra cserélődik.
+
+Üzletek
+Az üzletek hasonlóak a házakhoz de a célja nem az hogy ott lakjanak. Itt a megvásárlást egy kék ház ikon jelzi és szintén fehér nyílra cserélődik ha megvásárolják. A legtöbb üzletnek van saját egyedi szkriptje belül.
+
+Megvásárolhatatlan vagy állami belterek
+Néhány beltér az RP segítésére van kitalálva vagy teljesen publikus. Ezek a belterek fehér nyíllal vannak jelezve. Ha a fehér nyíl közelébe mész a névhez és az árhoz azt írja hogy nincs.</text>
+
+</content>

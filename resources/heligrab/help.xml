@@ -1,0 +1,11 @@
+<help>
+Ezzel a scriptel fel tudsz kapaszkodni helikopterekre.
+
+A gomb/parancsk különböző lehet más szervereken.
+Az alapértelmezett:
+/grab vagy ugrás a helikopter elkapásához
+/drop vagy a Backspace a leugráshoz
+
+Ezeket de tudod bindelni ezzel a parancsal::
+/bind billenytű down grab/drop (eg: "/bind lshift down grab")
+</help>

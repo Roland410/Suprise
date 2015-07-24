@@ -1,0 +1,54 @@
+<meta>
+	<info author="P3ti @ Sly Gaming" type="script" description="Client mods system"/>
+
+	<script src="c_mods_system.lua" type="client"/>
+	<script src="c_show_fps.lua" type="client"/>
+	
+	<!--<file src="ls/lee_stripclub.txd"/>
+	<file src="ls/lee_stripclub1.txd"/>-->
+	<!--<file src="mods/skins/9/wfyst.dff"/>-->
+	
+	<!-- <file src="ls/gangblok1_lae2.txd"/> -->
+    <!--<szerelö/>-->
+	<file src="fskinek/szerelo/szerelo.dff"/>
+	<file src="fskinek/szerelo/szerelo.txd"/>
+	<file src="fkocsik/stretch.txd"/>
+	<file src="fkocsik/stretch.dff"/>
+	<file src="fkocsik/onkori.txd"/>
+	<file src="fkocsik/onkori.dff"/>
+	<file src="fkocsik/rendor.txd"/>
+	<file src="fkocsik/rendor.dff"/>
+	<file src="fkocsik/enforcer.txd"/>
+	<file src="fkocsik/enforcer.dff"/>
+	<file src="fkocsik/mento.txd"/>
+	<file src="fkocsik/mento.dff"/>
+	<file src="fkocsik/mento1.txd"/>
+	<file src="fkocsik/mento1.dff"/>
+	<file src="fkocsik/nav.txd"/>
+	<file src="fkocsik/nav.dff"/>
+	<file src="fkocsik/szerelo.txd"/>
+	<file src="fkocsik/szerelo.dff"/>
+	<file src="fkocsik/szerelo1.txd"/>
+	<file src="fkocsik/szerelo1.dff"/>
+	
+
+	<!--<nav/>-->
+	<file src="fskinek/nav/nav.dff"/>
+	<file src="fskinek/nav/nav.txd"/>
+	<file src="fskinek/nav/nav1.dff"/>
+	<file src="fskinek/nav/nav1.txd"/>
+	<file src="fskinek/nav/nav2.dff"/>
+	<file src="fskinek/nav/nav2.txd"/>
+	<file src="epuletek/nav.txd"/>
+	
+	<!--<mento/>-->
+	<file src="fskinek/mento/mento.dff"/>
+	<file src="fskinek/mento/mento.txd"/>
+	<file src="fskinek/mento/mento1.dff"/>
+	<file src="fskinek/mento/mento1.txd"/>
+	<file src="fskinek/mento/mento2.dff"/>
+	<file src="fskinek/mento/mento2.txd"/>
+	<file src="epuletek/korhaz.txd"/>
+	<file src="epuletek/tabla.txd"/>
+	
+</meta>

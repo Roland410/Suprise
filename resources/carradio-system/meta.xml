@@ -1,0 +1,7 @@
+<meta>
+	<info author="..." type="script" name="InternetRadio" version="1" />	
+	<script src="Channels_C.lua" type="client" />
+	<script src="SimpleMenu.lua" type="client" />
+	<script src="text_c.lua" type="client" />
+	<script src="updater.lua" type="server" />
+</meta>

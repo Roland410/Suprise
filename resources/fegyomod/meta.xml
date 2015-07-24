@@ -1,0 +1,101 @@
+<meta>
+    
+
+<info author='Yakuza' version='0.1' name='Weapons, Sounds and Stats' description='Replace weapons with new models and new sounds. Stats for Kill, Deads and Ratio' type='script' />
+
+	
+	
+<script src="C_Replace.lua" type="client"/>
+	
+		
+<script src="C_Sounds.lua" type="client"/>
+
+	
+<script src="C_shader_radar.lua" type="client"/>
+<script src="C_shader_siteM16.lua" type="client"/>
+<script src="S_FadeCam.lua" type="server"/>
+<script src="S_KDR.sfx" type="server"/>
+
+
+<file src="shader/texreplace.fx"/>
+
+<file src="hud/radardisc.png"/>
+<file src="hud/siteM16.png"/>
+
+<file src="sounds/wasted.mp3" />
+
+		   
+<file src="sounds/weap/AK-47.wav" />
+	   
+<file src="sounds/weap/Colt45.mp3" />
+	   
+<file src="sounds/weap/Deagle.wav" />
+	   
+<file src="sounds/weap/Silenced.mp3" />
+	   
+<file src="sounds/weap/Shotgun.wav" />
+	   
+<file src="sounds/weap/Sawed-Off.mp3" />
+	   
+<file src="sounds/weap/Combat Shotgun.mp3" />
+	   
+<file src="sounds/weap/UZI.wav" />
+	   
+<file src="sounds/weap/tec9.wav" />
+	   
+<file src="sounds/weap/MP5.wav" />
+	   
+<file src="sounds/weap/M4.wav" />
+	   
+<file src="sounds/weap/Rifle.mp3" />
+	   
+<file src="sounds/weap/Sniper.wav" />
+
+	    
+	  
+<file src="models/weap/ak47.txd" />
+	
+<file src="models/weap/ak47.dff" />
+	
+<file src="models/weap/colt.txd" />
+	
+<file src="models/weap/colt.dff" />
+	
+<file src="models/weap/m4.txd" />
+	
+<file src="models/weap/m4.dff" />
+	
+<file src="models/weap/magnum.txd" />
+	
+<file src="models/weap/magnum.dff" />
+	
+<file src="models/weap/mp5.txd" />
+	
+<file src="models/weap/mp5.dff" />
+	
+<file src="models/weap/off.txd" />
+	
+<file src="models/weap/off.dff" />
+	
+<file src="models/weap/shotgun.txd" />
+	
+<file src="models/weap/shotgun.dff" />
+	
+<file src="models/weap/sniper.txd" />
+	
+<file src="models/weap/sniper.dff" />
+	
+<file src="models/weap/spaz.txd" />
+	
+<file src="models/weap/spaz.dff" />
+	
+<file src="models/weap/uzi.txd" />
+	
+<file src="models/weap/uzi.dff" />
+<file src="models/weap/silen.txd" />
+	
+<file src="models/weap/silen.dff" />
+
+
+
+</meta>

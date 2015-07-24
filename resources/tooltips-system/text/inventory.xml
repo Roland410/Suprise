@@ -1,0 +1,30 @@
+<content>
+    <pageLength>550</pageLength>
+	<title>Zseb(Inventory)</title>
+	<text>Különböző dolgokat gyűjtesz a szerveren eltöltött időd alatt. Több mint 100 különböző eszköz van a szerveren, az összes valamilyen funkciót lát el. Az ételek az életerődet(HP)növelik, a kulcsokkal járműveket, házakat és üzleteket tudsz nyitni vagy zárni illetve a ruhákat fel tudod venni.
+
+	Eszközök megvásárlása
+
+	Kölönböző dolgokat különböző üzletekben tudsz vásárolni, ezeket az üzleteket mind megtalálod a városokban. Itt van néhány bolttípus:
+
+	* Általános üzletek
+	* Fegyver és lőszer üzletek
+	* Étel üzletek
+	* Szex üzletek
+	* Ruha üzletek
+	
+	A zseb(Inventory)
+	Az zsebedben látod az összes összegyűjtött eszközt. Ennek megtekintéséhez nyomd meg az 'I' betűt. Különböző opciókat találsz a zsebednek a bal oldalán; eszközök, kulcsok és fegyverek. Egy eszköz használatához csak kattints rá.
+	
+	Eszközök eldobása/felvétele
+
+	Egy eszköz eldobásához csak fogd meg és húzd ki az zsebedből. Ha eldobod akkor bárki felveheti azt a földről. Az eszköz felvételhez nyomd meg az 'M' ekkor megjelenik a kurzor és csak kattints rá az eldobott eszközre. Ezután megjelenik a zsebedben az adott dolog.
+	
+	Eszközök törlése
+	Az adott eszköz törléséhez csak fogd meg és húzd rá a törlés opcióra.
+
+	Figyelmeztetés: Az eszköz törlés végleges, visszafordíthatatlan.
+
+	</text>
+
+</content>

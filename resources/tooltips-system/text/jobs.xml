@@ -1,0 +1,21 @@
+<content>
+    <pageLength>1200</pageLength>
+	<title>Munkák</title>
+	<text>Mindenki pénzt akar keresni, szóval neked is munkát kell találnod. Jelenleg 7 legális munka található a szerveren, de az folyamatosan bővül:
+	
+	* Csomagszállító
+	* Taxi sofőr
+	* Busz sofőr
+	* Közterület felügyelő
+	* Autószerelő
+	* Lakatos
+	* Horgász
+	
+	A legtöbb munkát a városházán tudod felvenni, ez a térképen meg is van jelölve. Ha bemész a városházára nincs más dolgod mintsem odamenni az asztal mögött álló nőhöz, megnyomni az 'M' betűt és rákattintani jobb klikkel a nőre ezután pedig a beszélgetés gombra. Itt már csak ki kell választanod a kívánt munkát és mehetsz is dolgozni.
+	
+	Kilépés a munkából
+	Ahhoz hogy bármely munkából kilépj használd a /quitjob parancsot.
+	
+	</text>
+
+</content>

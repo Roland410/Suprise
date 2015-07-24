@@ -1,0 +1,14 @@
+<content>
+    <pageLength>300</pageLength>
+	<title>Nyelvek</title>
+	<text>A nyelv rendszer lehetővé teszi azt hogy az adott beszélt nyelvet csak az értse aki tényleg beszéli, és hogy hogyan is lehet egy nyelvet beszélni, sok gyakorlással, minél többet beszélnek körülötted az adott nyelvel annál jobban fogod érteni, ameddig pedig nem érted, egy krikszkrakszot fogsz csak látni.
+	
+Amikor elkészítetted a karaktered lehetőséged volt kiválasztani az anyanyelvét. Ha egy adott nyelven beszélsz, és az akihez beszélsz nem beszéli az adott nyelvet, akkor csak egy összevisszaságot fog látni.
+	
+Legfeljebb három nyelvet beszélhetsz, egy időben. A játék kezdéskor csak egy nyelvet beszélsz, új nyelv tanulásához venned kell egy adott nyelvű szótárat. Miután felhasználtad a könyvet, nincs más dolgod mint olyan emberek társaságában lenni akik folyamatosan ezt a nyelvet beszélik.
+
+Nyelv parancsok
+F6 - A nyelvkezelési ablak megnyitása.
+/[1-3] [szöveg] - Lehetővé teszi hogy bármely nyelven beszélj, melyet már megtanultál, Például: "/2 Szia. Hogy vagy?" így használod a második nyelvet.</text>
+
+</content>

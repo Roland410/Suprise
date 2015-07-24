@@ -1,0 +1,300 @@
+﻿local pedTable = { }
+local characterSelected, characterElementSelected, newCharacterButton = nil
+function Characters_showSelection()
+	triggerEvent("onSapphireXMBShow", getLocalPlayer())
+	showPlayerHudComponent("radar", false)
+	
+	guiSetInputEnabled(false)
+	if not isCursorShowing ( ) then
+		showCursor(true)
+	end
+	setElementDimension ( getLocalPlayer(), 0 )
+	setElementInterior( getLocalPlayer(), 0 )
+	local x = 1479.1962  
+	local y =  -1700.2304
+	local z = 13.3762
+	local characterList = getElementData(getLocalPlayer(), "account:characters")
+	if (characterList) then
+		-- Prepare the peds
+		for _, v in ipairs(characterList) do
+			local thePed = createPed( tonumber( v[9]), x, y, z)
+			setPedRotation(thePed, 180)
+			setElementDimension(thePed, 0)
+			setElementInterior(thePed, 0)
+			setElementData(thePed,"account:charselect:id", v[1], false)
+			setElementData(thePed,"account:charselect:name", v[2]:gsub("_", " "), false)
+			setElementData(thePed,"account:charselect:cked", v[3], false)
+			setElementData(thePed,"account:charselect:lastarea", v[4], false)
+			setElementData(thePed,"account:charselect:lastseen", v[10], false)
+			setElementData(thePed,"account:charselect:age", v[5], false)
+			setElementData(thePed,"account:charselect:weight", v[11], false)
+			setElementData(thePed,"account:charselect:height", v[12], false)
+			setElementData(thePed,"account:charselect:desc", v[13], false)
+			setElementData(thePed,"account:charselect:age", v[5], false)
+			setElementData(thePed,"account:charselect:gender", v[6], false)
+			setElementData(thePed,"account:charselect:faction", v[7] or "", false)
+			setElementData(thePed,"account:charselect:factionrank", v[8] or "", false)
+			
+			
+			local randomAnimation = getRandomAnim( v[3] == 1 and 4 or 2 )
+			setPedAnimation ( thePed , randomAnimation[1], randomAnimation[2], -1, true, false, false, false )
+			
+			x = x + 0
+			if x > 849 then
+				x = 1479.1962
+				y = y + 0
+			end
+			
+			table.insert(pedTable, thePed)
+		end
+		-- Done!
+		addEventHandler("onClientPreRender", getRootElement(), Characters_updateSelectionCamera)
+		addEventHandler("onClientRender", getRootElement(), renderNametags)
+	end
+end
+
+function Characters_characterSelectionVisisble()
+	addEventHandler("onClientClick", getRootElement(), Characters_onClientClick)
+	--newCharacterButton = guiCreateButton(0.4, 0.02, 0.2, 0.1, "Create a new character!", true, nil)
+	addEventHandler("onClientGUIClick", newCharacterButton, Characters_newCharacter)
+end
+
+local currposs = -10000
+function Characters_updateSelectionCamera ()
+	if (currposs > 10000) then -- Done
+		removeEventHandler("onClientPreRender",getRootElement(),Characters_updateSelectionCamera)
+		Characters_characterSelectionVisisble()
+	end
+	currposs = currposs + 180
+	setCameraMatrix (1482.11646, -1721.20471, 15.93680, 0, currposs, 0)---elvileg a caracter
+end
+
+function renderNametags()
+	for key, player in ipairs(getElementsByType("ped")) do
+		if (isElement(player))then
+			if (getElementData(player,"account:charselect:id")) then
+				local lx, ly, lz = getElementPosition( getLocalPlayer() )
+				local rx, ry, rz = getElementPosition(player)
+				local distance = getDistanceBetweenPoints3D(lx, ly, lz, rx, ry, rz)
+				if  (isElementOnScreen(player)) then
+					local lx, ly, lz = getCameraMatrix()
+					local collision, cx, cy, cz, element = processLineOfSight(lx, ly, lz, rx, ry, rz+1, true, true, true, true, false, false, true, false, nil)
+					if not (collision) then	
+						local x, y, z = getElementPosition(player)
+						local sx, sy = getScreenFromWorldPosition(x, y, z+0.45, 100, false)
+						if (sx) and (sy) then
+							if (distance<=2) then
+								sy = math.ceil( sy - ( 2 - distance ) * 40 )
+							end
+							sy = sy - 20
+							if (sx) and (sy) then
+								distance = 1.5 
+								local offset = 75 / distance
+								dxDrawText(getElementData(player,"account:charselect:name"), sx-offset+2, sy+2, (sx-offset)+130 / distance, sy+20 / distance, tocolor(0, 0, 0, 220), 0.6 / distance, "bankgothic", "center", "center", false, false, false)
+								dxDrawText(getElementData(player,"account:charselect:name"), sx-offset, sy, (sx-offset)+130 / distance, sy+20 / distance, tocolor(255, 255, 255, 220), 0.6 / distance, "bankgothic", "center", "center", false, false, false)	
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function Characters_onClientClick(mouseButton, buttonState, alsoluteX, alsoluteY, worldX, worldY, worldZ, theElement)
+	if (theElement) and (buttonState == "down") then
+		if (getElementData(theElement,"account:charselect:id")) then
+			characterSelected = getElementData(theElement,"account:charselect:id")			
+			characterElementSelected = theElement			
+			
+			Characters_updateDetailScreen(theElement)
+			
+			local randomAnimation = nil
+			for _, thePed in ipairs(pedTable) do
+				local deceased = getElementData(thePed,"account:charselect:cked")
+				if deceased ~= 1 then
+					if thePed == theElement then
+						randomAnimation = getRandomAnim( 1 )
+					else
+						randomAnimation = getRandomAnim( 2 )
+					end
+				else
+					randomAnimation = getRandomAnim( 4 )
+				end
+				if randomAnimation then
+					local anim1, anim2 = getPedAnimation(thePed)
+					if randomAnimation[1] ~= anim1 or randomAnimation[2] ~= anim2 then
+						setPedAnimation ( thePed , randomAnimation[1], randomAnimation[2], -1, true, false, false, false )
+					end
+				end
+			end
+		end
+	end
+end
+
+--- Character detail screen
+local wDetailScreen, lDetailScreen, iCharacterImage, bPlayAs,cFadeOutTime = nil
+function Characters_createDetailScreen()
+	if wDetailScreen  then
+		return true
+	end
+	
+	local width, height = guiGetScreenSize()
+	
+	wDetailScreen = guiCreateWindow(width/1.5, 0, math.min(width / 1.5, 300),400, "Karakter adatok", false)
+	guiWindowSetSizable(wDetailScreen, false)
+	
+	lDetailScreen = {
+		guiCreateLabel(0.03,0.07,0.95,0.0887,"Név: N/A",true,wDetailScreen),
+		guiCreateLabel(0.03,0.11,0.96,0.0887,"Nem: N/A",true,wDetailScreen),
+		guiCreateLabel(0.03,0.15,0.96,0.0887,"Állapot: N/A",true,wDetailScreen),
+		guiCreateLabel(0.03,0.19,0.96,0.0887,"Kor: N/A",true,wDetailScreen),
+		guiCreateLabel(0.03,0.23,0.96,0.0887,"Frakció: N/A",true,wDetailScreen),
+		guiCreateLabel(0.03,0.30,0.96,0.0887,"Utoljára látták: N/A",true,wDetailScreen),
+	}
+	bPlayAs = guiCreateButton(80, 322, 220, 78, "Játék N/A néven", false, wDetailScreen)
+	addEventHandler("onClientGUIClick", bPlayAs, Characters_selectCharacter, false)
+	return true
+end
+
+function Characters_updateDetailScreen(thePed)
+	if Characters_createDetailScreen() then
+		if (iCharacterImage ~= nil) then
+			destroyElement(iCharacterImage)
+		end
+		local skin = getElementModel(thePed)
+		iCharacterImage = guiCreateStaticImage ( 10, 322, 64, 78, "img/" .. ("%03d"):format(skin) .. ".png", false, wDetailScreen)
+		
+		guiSetText ( lDetailScreen[1], "Név: " .. getElementData(thePed,"account:charselect:name") )
+		local characterGender = getElementData(thePed, "account:charselect:gender")
+		local characterGenderStr = "Nő"
+		if (characterGender == 0) then
+			characterGenderStr = "Férfi"
+		end
+		guiSetText ( lDetailScreen[2], "Nem: " .. characterGenderStr )
+		
+		local characterStatus = getElementData(thePed, "account:charselect:cked")
+		local characterStatusStr = "Halott"
+		if (characterStatus ~= 1) then
+			characterStatusStr = "Életben"
+		end
+		
+		guiSetText ( lDetailScreen[3], "Állapot: " .. characterStatusStr )
+		guiSetText ( lDetailScreen[4], "Kor: " .. tostring(getElementData(thePed, "account:charselect:age")) )
+		guiSetText ( lDetailScreen[5], "Frakció: " .. getElementData(thePed, "account:charselect:factionrank") .. " - " .. getElementData(thePed, "account:charselect:faction") )
+		guiSetText ( lDetailScreen[6], "Utoljára látták: " .. getElementData(thePed, "account:charselect:lastarea") )		
+		guiSetText ( bPlayAs, "Játék "..getElementData(thePed,"account:charselect:name").." néven" )		
+		if getElementData(thePed, "account:charselect:cked") == 1 then
+			guiSetEnabled(bPlayAs, false)
+		else
+			guiSetEnabled(bPlayAs, true)
+		end
+	end
+end
+
+function Characters_deactivateGUI()
+	if isElement(bPlayAs) then
+		guiSetEnabled(bPlayAs, false)
+		guiSetEnabled(wDetailScreen, false)
+		guiSetEnabled( newCharacterButton, false )
+	end
+	removeEventHandler("onClientRender", getRootElement(), renderNametags)
+	removeEventHandler("onClientClick", getRootElement(), Characters_onClientClick)
+end
+
+function Characters_selectCharacter()
+	if (characterSelected ~= nil) then
+		Characters_deactivateGUI()
+		local randomAnimation = getRandomAnim(3)
+		setPedAnimation ( characterElementSelected, randomAnimation[1], randomAnimation[2], -1, true, false, false, false )
+		guiSetText ( bPlayAs, "Kérlek várj.." )	
+		cFadeOutTime = 254
+		addEventHandler("onClientRender", getRootElement(), Characters_FadeOut)
+		triggerServerEvent("accounts:characters:spawn", getLocalPlayer(), characterSelected)
+	end 
+end
+
+
+
+--function kirakrepter()
+
+
+-- setElementPosition ( getLocalPlayer, -1836.3757324219, 59.434074401855, 1054.8388671875 )
+--	setElementInterior ( getLocalPlayer, 14 )
+--	setElementDimension ( getLocalPlayer, 0 )
+--   outputChatBox("Üdvözöljük a reptéren", 255, 0, 0)	
+--end
+
+function Characters_FadeOut()
+	cFadeOutTime = cFadeOutTime -3
+	if (cFadeOutTime <= 0) then
+		removeEventHandler("onClientRender", getRootElement(), Characters_FadeOut)
+	else
+		for _, thePed in ipairs(pedTable) do
+			if thePed ~= characterElementSelected then
+				setElementAlpha(thePed, cFadeOutTime)
+			end
+		end
+	end
+end
+
+function characters_destroyDetailScreen()
+	lDetailScreen = { }
+	if isElement(wDetailScreen) then
+		destroyElement(iCharacterImage)
+		destroyElement(bPlayAs)
+		destroyElement(wDetailScreen)
+		iCharacterImage = nil
+		iPlayAs = nil
+		wDetailScreen = nil
+	end
+	for _, thePed in ipairs(pedTable) do
+		destroyElement(thePed)
+	end
+	pedTable = { }
+	cFadeOutTime = 0
+	destroyElement( newCharacterButton )
+end
+--- End character detail screen
+
+function characters_onSpawn(fixedName, adminLevel, gmLevel, factionID, factionRank)
+	clearChat()
+	showCursor(false)
+	outputChatBox("Most '" .. fixedName .. "' néven játszol.", 0, 255, 0)
+	outputChatBox(" /segitsg", 255, 194, 14)
+	outputChatBox("A beállításokhoz nyomj 'F10'-et.", 255, 194, 15)
+	outputChatBox("Laggolsz a szerveren?ird be /modolás.", 255, 194, 15)
+	outputChatBox(" ")
+	characters_destroyDetailScreen()
+	setElementData(getLocalPlayer(), "adminlevel", adminLevel, false)
+	setElementData(getLocalPlayer(), "account:gmlevel", gmLevel, false)
+	setElementData(getLocalPlayer(), "faction", factionID, false)
+	setElementData(getLocalPlayer(), "factionrank", factionrank, false)
+	setTimer(hirdetes, 300000, 0)
+	setTimer(hirdetes1, 400000, 0)
+	setTimer(hirdetes2, 500000, 0)
+	
+	options_enable()
+end
+addEventHandler("accounts:characters:spawn", getRootElement(), characters_onSpawn)
+
+function hirdetes()
+    outputChatBox("Tipp:Laggolsz a szerveren?ird be /modolás.", 255, 194, 15)
+	end
+
+	function hirdetes1()
+    outputChatBox("Tipp:Nincs Kivel Társalognod?gyere ts re Ip:91.82.220.31.", 255, 194, 15)
+	end
+
+		function hirdetes2()
+    outputChatBox("Tipp:Nem tudod mik az újitások?", 255, 194, 15)
+	outputChatBox("Kövess minket nyomon Facebook oldalunkon,illetve youtube csatornánkon", 255, 194, 15)
+	end
+
+
+
+function Characters_newCharacter()
+	Characters_deactivateGUI()
+	characters_destroyDetailScreen()
+	newCharacter_init()
+end

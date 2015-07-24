@@ -1,0 +1,30 @@
+<content>
+    <pageLength>555</pageLength>
+	<title>Járművek</title>
+	<text>Jármű parancsok
+A járművedet a 'J' betű lenyomásával indíthatod el.
+A járművedet a 'K' betű lenyomásával zárhatod be. 
+Az 'L' betű lenyomásával a lámpát kapcsolhatod fel illetve le. 
+A kézifék behúzásához írd be hogy /kezifek
+	
+Gyorsgombra tudsz állítani indexet a következő parancsokkal:
+/bind [A gyorsgomb amire bindelni szeretnéd] down index_bal
+/bind [A gyorsgomb amire bindelni szeretnéd] down index_jobb
+
+A járművekkel is ugyanúgy tudsz interakcióba lépni mint a játékosokkal vagy az NPC-kel, nyomd meg az 'M' betűt aztán a megjelenő kurzorral jobb klikkelj a járműre.
+
+Vezetés közben a sebességóra illetve az üzemanyag tartalom a jobb alsó sarokban jelenik meg. Az ikonok az üzemanyagóra felett a jelenlegi sebességkorlátot jelzik ki.
+
+Jármű típusok
+
+Civil kocsik
+A civil kocsik azok melyeket senki sem birtokol. Ezeket a járműveket ingyen elviheted, de a többségük munkához van kötve és ahhoz is kell használnod.
+	
+Személygépjárművek
+Személygépjárművet az autókereskedésekből tudsz vásárolni. Miután megvásárlod a járművedet megjelenik a zsebedben a kulcsa, ezzel be tudod zárni, így megelőzve azt hogy ellopják. A jármű mindig a szerveren van, ezért zárd be nehogy ellopják amíg nem vagy fent. A jármű tulajdonosa a /park paranccsal tudja az újra spawnolási helyet beállítani.
+	
+Frakció járművek
+Ezek a járművek kizárólag a frakció tagjainak érhető el. Frakció járművei kizárólag a rendőrségnek, Mentőszolgálatnak illetve a Hírközlési szolgálatnak lehet. Az összes többi frakciónak saját személygépjárműveket kell vásárolnia.
+	</text>
+
+</content>

@@ -1,0 +1,26 @@
+<meta>
+	<info author="P3ti @ Sly Gaming" type="script" description="Client mods system"/>
+
+	<script src="c_mods_system.lua" type="client"/>
+	<script src="c_show_fps.lua" type="client"/>
+	
+	<!--<file src="ls/lee_stripclub.txd"/>
+	<file src="ls/lee_stripclub1.txd"/>-->
+	<!--<file src="mods/skins/9/wfyst.dff"/>-->
+	
+	<!-- <file src="ls/gangblok1_lae2.txd"/> -->
+	
+	<file src="epuletek/nav.txd"/>
+	<file src="epuletek/autoker.txd"/>
+	<file src="epuletek/oktato.txd"/>
+	<file src="epuletek/korhaz.txd"/>
+	<file src="epuletek/tabla.txd"/>
+	<file src="epuletek/kut.txd"/>
+	<file src="epuletek/kut1.txd"/>
+	<file src="epuletek/mec.txd"/>
+	<file src="epuletek/mec1.txd"/>
+	<file src="epuletek/mec2.txd"/>
+	<file src="epuletek/stad.txd"/>
+	<file src="epuletek/vasut.txd"/>
+	
+</meta>

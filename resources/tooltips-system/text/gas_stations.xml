@@ -1,0 +1,7 @@
+<content>
+    <pageLength>300</pageLength>
+	<title>Benzinkút</title>
+	<text>A benzinkúton a járművedbe illetve a benzines kannába tudsz üzemanyagot tölteni. A jármű feltankolásához parkolj le a benzinkút mellé, állítsd le a motort a 'J' betű megnyomásával. Írd be a /fill parancsot. A tank folyamatosan töltődni fog majd amikor megtelt, akkor a chatboxban megjelenik a kifizetett összeg és a vásárolt benzin mennyisége.
+	</text>
+
+</content>

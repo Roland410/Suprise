@@ -1,0 +1,5 @@
+<meta>
+	<info type="misc" name="New Hud" author="StevyDK" description="" version="1" />
+	<script type="client" src="hud.lua" />
+	 <file src="flyrpg.png" />
+</meta>

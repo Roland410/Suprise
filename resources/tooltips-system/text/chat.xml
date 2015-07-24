@@ -1,0 +1,37 @@
+<content>
+    <pageLength>500</pageLength>
+	<title>Chat Parancsok</title>
+	<text>In Character
+	t [szöveg] - helyi IC chat
+	y [szöveg] - Rádió
+	/w [játékos] [szöveg] - IC súgás egy adott személynek
+	/c [szöveg] - Súgás, melyet több ember is hall, kicsi körzetben.
+	/cw [szöveg] - Beszéd csak a járműben lévő embereknek
+	/s [szöveg] - Ordítás
+	/L1 - helyi IC chat az 1-es tanult nyelven
+	/L2 - helyi IC chat az 2-es tanult nyelven
+	/L3 - helyi IC chat az 3-es tanult nyelven
+	
+	Out of Character
+	/o [szöveg] - Globális OOC chat
+	/b [szöveg] - Helyi OOC chat
+	/pm [játékos] [szöveg] - OOC privát üzenet
+	
+	Szerepjáték parancsok
+	/do [szöveg] - Történést/létezést szimuláló parancs
+	/me[szöveg] -  Szándékos cselekvést körülíró őarancs.
+	/ad [Telefonszám mutatása: 0/1] [szöveg] - Hírdetés feladása
+	
+	Frakció parancsok
+	/f [szöveg] - OOC frakció chat
+	/m [szöveg] - Megaphone használat (IC)
+	
+	Modiltelefon parancsok
+	/p [szöveg] - Mobiltelefonba így beszélsz. 
+	/loudspeaker - Nagyobb körben lesz halható a telefonos beszélgetés.
+	
+	/helpcmds az összes parancs kilistázása
+	
+	</text>
+
+</content>

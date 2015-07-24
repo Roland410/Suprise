@@ -1,0 +1,35 @@
+﻿<content>
+		Parancsok a szerepjátékhoz!
+
+Itt van pár parancs, amit a játék során használni fogsz.
+
+/Me - A /me parancs segítségével a karaktereddel történt nem látható cselekményeket írhatod le Például:
+
+/me hátranyúl a hátsó zsebébe és megtalálja a kulcsát
+/me megigazítja az övét
+/me lassan megvakarja a térdét
+
+A /me parancs használata nagyon fontos, rengeteg szituációban szükséges.
+Az érthetõ /me a jó /me.
+
+Ezt a parancsot használhatod arra is, hogy leírd a karaktered kinézetét.  
+
+Például:
+
+/Me fehér bõrû, kopaszodó, 180 magas 
+/me fehér pólót és kék nadrágot visel, az övés jelvény látható 
+
+/Do - A /do a harmadik leggyakrabban használt parancs a szerveren, ezzel lelehet írni a környezetet, jó ha használunk benne mellékneveket.Ez nagyban javítja a szerepjáték menetét.
+
+EX.
+
+/do a szél szétfújta John séróját, ezért úgy néz ki mint egy szénaboglya 
+Egy lövöldözés közben is jól jöhet ez a parancs:
+
+/do a golyó John mellkasát találta el, körülötte csupa vér minden
+
+/B - A /b a lokális karakteren kívüli dolgok megbeszélésére van. Itt beszélhetsz a másik karakter "tulajával" játékmeneten kívül. A sok /b használat rontja a szerepjáték színvonalát.
+
+/Report - A /report parancs arra szolgál, hogyha látsz egy csalót vagy szabályszegõt, akkor ezzel a parancsal jelentheted azt az adminoknak.
+/PM - Private messaging other plays is a good way to communicate in foreign languages or about general things. Watch out though, Admins are always watching so dont break the rules!
+</content>

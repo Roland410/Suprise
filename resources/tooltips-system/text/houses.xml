@@ -1,0 +1,18 @@
+<content>
+    <pageLength>400</pageLength>
+	<title>Ház vásárlása és bérlése</title>
+	<text>Azt mondják hogy az ember háza olyan mint egy kastély a kemény munka után otthon megpihen itt az idő hogy neked is legyen saját házad.
+	
+	Az egész térképen sok sok ház elérhető és ez a szám folyamatosan bővül. Egy házat akkor tudsz megvenni ha egy zöld ház icon lebeg a bejárata előtt.
+	
+	Ha közel állsz az ikonhoz akkor megjelenik a ház címe (minden háznak van címe) és az értéke.
+	
+	Ha van elég pénz nálad elég csak megnyomnod az 'F' vagy 'enter' billentyűt (ugyan az a gomb mint amivel a kocsiba beülsz). Abban az esetben ha sikerült megvenned a zöld ház egy fehér nyílra változik, ez jelzi hogy a ház már valakinek a tulajdonában áll(most már a tiedben). Ha közel mész a nyílhoz akkor megjelenik a ház tulajdonosának a neve. Ne feledd ez a ház kizárólag OOC információ, nem használhatod fel IC.
+	
+	Ha megveszed a házat akkor a zsebedben ('I' betű megnyomásával) megjelenik a kulcs. A házad kinyitásához nyisd meg a zsebedet ('I' betű) kattints a kulcsok szekcióra majd a házad kulcsára klikkelj ekkor megjelenik egy 'Elem használata' gomb, erre nyomj rá. Ha az ajtóhoz közel állsz és végrehajtod az előző procedúrát akkor a chatboxban megjelenik egy üzenet az ajtó jelenlegi állapotáról.
+	
+	Ne felejts el ház avató party-t tartani hogy megismerd a szomszédaidat.
+	
+	</text>
+
+</content>

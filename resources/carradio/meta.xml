@@ -1,0 +1,16 @@
+<meta>
+	<info type="misc" name="New Hud" author="StevyDK" description="" version="1" />
+
+	
+	
+	<script type="client" src="kocsiradio.luac" />
+	<file src="magno.png" />
+	<file src="off.png" />
+	<file src="neofm.png" />
+	<file src="class.png" />
+	<file src="disco.png" />
+	<file src="tekno.png" />
+	<file src="nyir.png" />
+	<file src="beep.wav" type="client" />
+
+</meta>
