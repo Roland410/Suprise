@@ -358,7 +358,7 @@ function forceReconnect(thePlayer, commandName, targetPlayer)
 					local adminTitle = exports.global:getPlayerAdminTitle(thePlayer)
 					exports.global:sendMessageToAdmins("Figyelem: " .. tostring(adminTitle) .. " " .. getPlayerName(thePlayer) .. " reconnected " .. targetPlayerName )
 				end
-				outputChatBox("Player '" .. targetPlayerName .. "' Kénytelen volt ujracsatlakozni", thePlayer, 255, 0, 0)
+				outputChatBox("Player '" .. targetPlayerName .. "' Kénytelen volt újracsatlakozni", thePlayer, 255, 0, 0)
 					
 				local timer = setTimer(kickPlayer, 1000, 1, targetPlayer, getRootElement(), "Please Reconnect")
 				addEventHandler("onPlayerQuit", targetPlayer, function( ) killTimer( timer ) end)
