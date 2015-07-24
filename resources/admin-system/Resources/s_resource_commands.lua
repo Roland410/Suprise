@@ -7,7 +7,7 @@
 			if (theResource) then
 				if getResourceState(theResource) == "running" then
 					restartResource(theResource)
-					outputChatBox("Resource " .. resourceName .. " Újraindult!", thePlayer, 0, 255, 0)
+					outputChatBox("Resource " .. resourceName .. " újraindult!", thePlayer, 0, 255, 0)
 					exports.global:sendMessageToAdmins("AdmScript: " .. getPlayerName(thePlayer) .. " restarted the resource '" .. resourceName .. "'.")
 				elseif getResourceState(theResource) == "loaded" then
 					startResource(theResource, true)
