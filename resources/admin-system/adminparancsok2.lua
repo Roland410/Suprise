@@ -15,7 +15,7 @@ function setPlayerVehicleColor(thePlayer, commandName, target, ...)
 			if targetPlayer then
 				local logged = getElementData(targetPlayer, "loggedin")
 				if (logged==0) then
-					outputChatBox("játékos nem online.", thePlayer, 255, 0, 0)
+					outputChatBox("Játékos nem online.", thePlayer, 255, 0, 0)
 				else
 					local veh = getPedOccupiedVehicle(targetPlayer)
 					if (veh) then
@@ -29,7 +29,7 @@ function setPlayerVehicleColor(thePlayer, commandName, target, ...)
 							elseif tonumber(colors[1]) and tonumber(colors[1]) >= 0 and tonumber(colors[1]) <= 255 then
 								col[i] = math.floor(tonumber(colors[i]))
 							else
-								outputChatBox("IHibás szin: " .. colors[i], thePlayer, 255, 0, 0)
+								outputChatBox("Hibás szin: " .. colors[i], thePlayer, 255, 0, 0)
 								return
 							end
 						end
@@ -80,7 +80,7 @@ function getAVehicleColor(thePlayer, commandName, carid)
 				outputChatBox("3. " .. col[7].. "," .. col[8] .. "," .. col[9] .. " = " .. ("#%02X%02X%02X"):format(col[7], col[8], col[9]), thePlayer)
 				outputChatBox("4. " .. col[10].. "," .. col[11] .. "," .. col[12] .. " = " .. ("#%02X%02X%02X"):format(col[10], col[11], col[12]), thePlayer)
 			else
-				outputChatBox("Hibás Kocsi id.", thePlayer, 255, 194, 14)
+				outputChatBox("Hibás Kocsi ID.", thePlayer, 255, 194, 14)
 			end
 		end
 	end
@@ -110,7 +110,7 @@ function fuelPlayerVehicle(thePlayer, commandName, target)
 						outputChatBox("A jármű üzemanyaggal ellátva " .. username .. " által.", targetPlayer)
 						exports.logs:dbLog(thePlayer, 6, { targetPlayer, veh  }, "FUELVEH")
 					else
-						outputChatBox("Játékos nem online", thePlayer, 255, 0, 0)
+						outputChatBox("Játékos nem online.", thePlayer, 255, 0, 0)
 					end
 				end
 			end
@@ -152,19 +152,19 @@ function marry(thePlayer, commandName, player1, player2)
 									mysql:query_free("UPDATE characters SET marriedto = " .. mysql:escape_string(getElementData( player1, "dbid" )) .. " WHERE id = " .. mysql:escape_string(getElementData( player2, "dbid" )) )
 									mysql:query_free("UPDATE characters SET marriedto = " .. mysql:escape_string(getElementData( player2, "dbid" )) .. " WHERE id = " .. mysql:escape_string(getElementData( player1, "dbid" )) ) 
 									
-									outputChatBox( "önök mostantol kezdve házastársak " .. player2name .. ".", player1, 0, 255, 0 )
-									outputChatBox( "önök mostantol kezdve házastársak " .. player1name .. ".", player2, 0, 255, 0 )
+									outputChatBox( "Önök mostantol kezdve házastársak " .. player2name .. ".", player1, 0, 255, 0 )
+									outputChatBox( "Önök mostantol kezdve házastársak " .. player1name .. ".", player2, 0, 255, 0 )
 									
 									exports['cache']:clearCharacterName( getElementData( player1, "dbid" ) )
 									exports['cache']:clearCharacterName( getElementData( player2, "dbid" ) )
 									
-									outputChatBox( player1name .. "és" .. player2name .. " Házasok", thePlayer, 255, 194, 14 )
+									outputChatBox( player1name .. " és " .. player2name .. " házasok", thePlayer, 255, 194, 14 )
 								else
-									outputChatBox( player2name .. "Már házas", thePlayer, 255, 0, 0 )
+									outputChatBox( player2name .. " már házas.", thePlayer, 255, 0, 0 )
 								end
 							end
 						else
-							outputChatBox( player1name .. " Már házas", thePlayer, 255, 0, 0 )
+							outputChatBox( player1name .. " Már házas.", thePlayer, 255, 0, 0 )
 						end
 					end
 				end
@@ -191,9 +191,9 @@ function divorce(thePlayer, commandName, targetPlayer)
 						exports['cache']:clearCharacterName( getElementData( targetPlayer, "dbid" ) )
 						exports['cache']:clearCharacterName( to )
 						
-						outputChatBox( targetPlayerName .. " önök mostantol elváltak", thePlayer, 0, 255, 0 )
+						outputChatBox( targetPlayerName .. "Önök mostantol elváltak.", thePlayer, 0, 255, 0 )
 					else
-						outputChatBox( targetPlayerName .. " önök mostantol elváltak", thePlayer, 255, 194, 14 )
+						outputChatBox( targetPlayerName .. "Önök mostantol elváltak.", thePlayer, 255, 194, 14 )
 					end
 				end
 			end
@@ -222,19 +222,19 @@ function setLanguage(thePlayer, commandName, targetPlayerName, language, skill)
 			local targetPlayer, targetPlayerName = exports.global:findPlayerByPartialNick( thePlayer, targetPlayerName )
 			if not targetPlayer then
 			elseif getElementData( targetPlayer, "loggedin" ) ~= 1 then
-				outputChatBox( "Játékos nem online", thePlayer, 255, 0, 0 )
+				outputChatBox( "Játékos nem online.", thePlayer, 255, 0, 0 )
 			else
 				local lang = tonumber( language ) or getLanguageByName( language )
 				local skill = tonumber( skill )
 				if not lang then
-					outputChatBox( language .. " Hibás nyelv", thePlayer, 255, 0, 0 )
+					outputChatBox( language .. " Hibás nyelv.", thePlayer, 255, 0, 0 )
 				else
 					local langname = call( getResourceFromName( "language-system" ), "getLanguageName", lang )
 					local success, reason = call( getResourceFromName( "language-system" ), "learnLanguage", targetPlayer, lang, false, skill )
 					if success then
-						outputChatBox( targetPlayerName .. " Tanult" .. langname .. ".", thePlayer, 0, 255, 0 )
+						outputChatBox( targetPlayerName .. " tanult " .. langname .. ".", thePlayer, 0, 255, 0 )
 					else
-						outputChatBox( targetPlayerName .. "nem tudott tanulni" .. langname .. ": " .. tostring( reason ), thePlayer, 255, 0, 0 )
+						outputChatBox( targetPlayerName .. " nem tudott tanulni " .. langname .. ": " .. tostring( reason ), thePlayer, 255, 0, 0 )
 					end
 					--exports.logs:logMessage("[/SETLANGUAGE] " .. getElementData(thePlayer, "account:username") .. "/".. getPlayerName(thePlayer) .." learned ".. targetPlayerName .. " " .. langname , 4)
 					exports.logs:dbLog(thePlayer, 4, targetPlayer, "SETLANGUAGE "..langname.." "..tostring(skill))
@@ -253,17 +253,17 @@ function deleteLanguage(thePlayer, commandName, targetPlayerName, language)
 			local targetPlayer, targetPlayerName = exports.global:findPlayerByPartialNick( thePlayer, targetPlayerName )
 			if not targetPlayer then
 			elseif getElementData( targetPlayer, "loggedin" ) ~= 1 then
-				outputChatBox( "Játékos nem online", thePlayer, 255, 0, 0 )
+				outputChatBox( "Játékos nem online.", thePlayer, 255, 0, 0 )
 			else
 				local lang = tonumber( language ) or getLanguageByName( language )
 				if not lang then
-					outputChatBox( language .. " Hibás nyelv", thePlayer, 255, 0, 0 )
+					outputChatBox( language .. " Hibás nyelv.", thePlayer, 255, 0, 0 )
 				else
 					local langname = call( getResourceFromName( "language-system" ), "getLanguageName", lang )
 					if call( getResourceFromName( "language-system" ), "removeLanguage", targetPlayer, lang ) then
 						outputChatBox( targetPlayerName .. " forgot " .. langname .. ".", thePlayer, 0, 255, 0 )
 					else
-						outputChatBox( targetPlayerName .. " Nem tudsz beszélni " .. langname, thePlayer, 255, 0, 0 )
+						outputChatBox( targetPlayerName .. " nem tudsz beszélni " .. langname, thePlayer, 255, 0, 0 )
 					end
 				end
 			end
@@ -300,7 +300,7 @@ function setPlayerSkinCmd(thePlayer, commandName, targetPlayer, skinID)
 					if not (skin) then
 						outputChatBox("Hibás skin ID.", thePlayer, 255, 0, 0)
 					else
-						outputChatBox("Játékos " .. targetPlayerName .. " Átálitották a skine erre: " .. skinID .. ".", thePlayer, 0, 255, 0)
+						outputChatBox("Játékos " .. targetPlayerName .. " Átálitották a skined erre: " .. skinID .. ".", thePlayer, 0, 255, 0)
 						mysql:query_free("UPDATE characters SET skin = " .. mysql:escape_string(skinID) .. " WHERE id = " .. mysql:escape_string(getElementData( targetPlayer, "dbid" )) )
 						exports.logs:dbLog(thePlayer, 4, targetPlayer, "SETSKIN "..tostring(skinID))
 					end
@@ -326,10 +326,10 @@ function setPlayerArmour(thePlayer, commandName, targetPlayer, armor)
 				local logged = getElementData(targetPlayer, "loggedin")
 				
 				if (logged==0) then
-					outputChatBox("Játékos nem online", thePlayer, 255, 0, 0)
+					outputChatBox("Játékos nem online.", thePlayer, 255, 0, 0)
 				elseif (tostring(type(tonumber(armor))) == "number") then
 					local setArmor = setPedArmor(targetPlayer, tonumber(armor))
-					outputChatBox("Player " .. targetPlayerName .. " Kaptál" .. armor .. " Páncélt.", thePlayer, 0, 255, 0)
+					outputChatBox("Player " .. targetPlayerName .. " Kaptál" .. armor .. " páncélt.", thePlayer, 0, 255, 0)
 					exports.logs:dbLog(thePlayer, 4, targetPlayer, "SETARMOR "..tostring(armor))
 				else
 					outputChatBox("Hibás Páncél érték.", thePlayer, 255, 0, 0)
@@ -358,7 +358,7 @@ function forceReconnect(thePlayer, commandName, targetPlayer)
 					local adminTitle = exports.global:getPlayerAdminTitle(thePlayer)
 					exports.global:sendMessageToAdmins("Figyelem: " .. tostring(adminTitle) .. " " .. getPlayerName(thePlayer) .. " reconnected " .. targetPlayerName )
 				end
-				outputChatBox("Player '" .. targetPlayerName .. "' Kénytelen volt újracsatlakozni", thePlayer, 255, 0, 0)
+				outputChatBox("Player '" .. targetPlayerName .. " kénytelen volt újracsatlakozni", thePlayer, 255, 0, 0)
 					
 				local timer = setTimer(kickPlayer, 1000, 1, targetPlayer, getRootElement(), "Please Reconnect")
 				addEventHandler("onPlayerQuit", targetPlayer, function( ) killTimer( timer ) end)
@@ -386,7 +386,7 @@ function adminUnmask(thePlayer, commandName, targetPlayer)
 				local username = getPlayerName(thePlayer)
 				
 				if (logged==0) then
-					outputChatBox("Játékos nem online", thePlayer, 255, 0, 0)
+					outputChatBox("Játékos nem online.", thePlayer, 255, 0, 0)
 				else
 					local any = false
 					local masks = exports['item-system']:getMasks()
@@ -401,7 +401,7 @@ function adminUnmask(thePlayer, commandName, targetPlayer)
 						outputChatBox("Ön eltávolította a maszkot " .. targetPlayerName .. ".", thePlayer, 255, 0, 0)
 						exports.logs:dbLog(thePlayer, 4, targetPlayer, "UNMASK")
 					else
-						outputChatBox("Játékoson nincs maszk", thePlayer, 255, 0, 0)
+						outputChatBox("Játékoson nincs maszk.", thePlayer, 255, 0, 0)
 					end
 				end
 			end
@@ -428,7 +428,7 @@ function adminUncuff(thePlayer, commandName, targetPlayer)
 				else
 					local restrain = getElementData(targetPlayer, "restrain")
 					
-					if (restrain==0) then
+					if (restrain==0) then.
 						outputChatBox("", thePlayer, 255, 0, 0)
 					else
 						outputChatBox("Levette róla a bilincset " .. username .. ".", targetPlayer,0,255,0)

@@ -325,7 +325,7 @@ function slapPlayer(thePlayer, commandName, targetPlayer)
 				if (logged==0) then
 					outputChatBox("Játékos nem online", thePlayer, 255, 0, 0)
 				elseif (targetPlayerPower > thePlayerPower) then -- Check the admin isn't slapping someone higher rank them him
-					outputChatBox("Nem adhatsz neki pacsit mert magasabb rangu admin:D", thePlayer, 255, 0, 0)
+					outputChatBox("Nem adhatsz neki pacsit mert magasabb rangú admin.", thePlayer, 255, 0, 0)
 				else
 					local x, y, z = getElementPosition(targetPlayer)
 					

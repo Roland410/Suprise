@@ -14,9 +14,9 @@ function szerContract( thePlayer, commandName, targetPlayerName )
 				if getElementData( targetPlayer, "loggedin" ) == 1 then
 					local result = mysql:query_free("UPDATE characters SET job = 5 WHERE id = " .. mysql:escape_string(getElementData( targetPlayer, "dbid" )) .. " AND jobcontract > 0" )
 					if result then
-						outputChatBox( "MSzerelőnek beraktad  " .. targetPlayerName, thePlayer, 0, 255, 0 )
+						outputChatBox( "Szerelőnek beraktad  " .. targetPlayerName, thePlayer, 0, 255, 0 )
 					else
-						outputChatBox( "Nem sikerült a munka szerződés újrakötezése", thePlayer, 255, 0, 0 )
+						outputChatBox( "Nem sikerült a munka szerződés újrakötése.", thePlayer, 255, 0, 0 )
 					end
 				else
 					outputChatBox( "A játékos nincs bejelentkezve.", thePlayer, 255, 0, 0 )
@@ -39,7 +39,7 @@ addEvent("onVehicleDelete", false)
 function findVehID(thePlayer, commandName, ...)
 	if (exports.global:isPlayerHeadAdmin(thePlayer)) then
 		if not (...) then
-			outputChatBox("Parancs: /" .. commandName .. " [Partial Name]", thePlayer, 255, 194, 14)
+			outputChatBox("Parancs: /" .. commandName .. " [Név/ID]", thePlayer, 255, 194, 14)
 		else
 			local vehicleName = table.concat({...}, " ")
 			local carID = getVehicleModelFromName(vehicleName)
@@ -48,7 +48,7 @@ function findVehID(thePlayer, commandName, ...)
 				local fullName = getVehicleNameFromModel(carID)
 				outputChatBox(fullName .. ": ID " .. carID .. ".", thePlayer)
 			else
-				outputChatBox("Vehicle not found.", thePlayer, 255, 0 , 0)
+				outputChatBox("Nem találtam ilyen járművet.", thePlayer, 255, 0 , 0)
 			end
 		end
 	end
@@ -59,7 +59,7 @@ addCommandHandler("findveh", findVehID, false, false)
 function blowPlayerVehicle(thePlayer, commandName, target)
 	if (exports.global:isPlayerHeadAdmin(thePlayer)) then
 		if not (target) then
-			outputChatBox("Parancs: /" .. commandName .. " [Partial Player Nick]", thePlayer, 255, 194, 14)
+			outputChatBox("Parancs: /" .. commandName .. " [Név/ID]", thePlayer, 255, 194, 14)
 		else
 			local username = getPlayerName(thePlayer)
 			local targetPlayer, targetPlayerName = exports.global:findPlayerByPartialNick(thePlayer, target)
@@ -67,15 +67,15 @@ function blowPlayerVehicle(thePlayer, commandName, target)
 			if targetPlayer then
 				local logged = getElementData(targetPlayer, "loggedin")
 				if (logged==0) then
-					outputChatBox("Player is not logged in.", thePlayer, 255, 0, 0)
+					outputChatBox("Ez a játékos nincs belépve.", thePlayer, 255, 0, 0)
 				else
 					local veh = getPedOccupiedVehicle(targetPlayer)
 					if (veh) then
 						blowVehicle(veh)
-						outputChatBox("You blew up " .. targetPlayerName .. "'s vehicle.", thePlayer)
+						outputChatBox("Felrobbantottad " .. targetPlayerName .. " járművét.", thePlayer)
 						exports.logs:dbLog(thePlayer, 6, { targetPlayer, veh  }, "BLOWVEH" )
 					else
-						outputChatBox("That player is not in a vehicle.", thePlayer, 255, 0, 0)
+						outputChatBox("Ez a játékos nincs járműben.", thePlayer, 255, 0, 0)
 					end
 				end
 			end
@@ -88,7 +88,7 @@ addCommandHandler("blowveh", blowPlayerVehicle, false, false)
 function setCarHP(thePlayer, commandName, target, hp)
 	if (exports.global:isPlayerHeadAdmin(thePlayer)) then
 		if not (target) or not (hp) then
-			outputChatBox("Parancs: /" .. commandName .. " [Partial Player Nick] [Health]", thePlayer, 255, 194, 14)
+			outputChatBox("Parancs: /" .. commandName .. " [Név/ID] [Élet]", thePlayer, 255, 194, 14)
 		else
 			local username = getPlayerName(thePlayer)
 			local targetPlayer, targetPlayerName = exports.global:findPlayerByPartialNick(thePlayer, target)
@@ -96,14 +96,14 @@ function setCarHP(thePlayer, commandName, target, hp)
 			if targetPlayer then
 				local logged = getElementData(targetPlayer, "loggedin")
 				if (logged==0) then
-					outputChatBox("Player is not logged in.", thePlayer, 255, 0, 0)
+					outputChatBox("Ez a játékos nincs belépve.", thePlayer, 255, 0, 0)
 				else
 					local veh = getPedOccupiedVehicle(targetPlayer)
 					if (veh) then
 						local sethp = setElementHealth(veh, tonumber(hp))
 						
 						if (sethp) then
-							outputChatBox("You set " .. targetPlayerName .. "'s vehicle health to " .. hp .. ".", thePlayer)
+							outputChatBox("Beállítottad " .. targetPlayerName .. " járművének életét " .. hp .. ".", thePlayer)
 							--exports.logs:logMessage("[/SETCARHP] " .. getElementData(thePlayer, "account:username") .. "/".. getPlayerName(thePlayer) .." set ".. targetPlayerName .. "his car to hp: " .. hp , 4)
 							exports.logs:dbLog(thePlayer, 6, { targetPlayer, veh  }, "SETVEHHP ".. hp )
 						else
@@ -128,9 +128,9 @@ function getPosition(thePlayer, commandName)
 		local dimension = getElementDimension(thePlayer)
 		local interior = getElementInterior(thePlayer)
 		
-		outputChatBox("Pozicio: " .. x .. ", " .. y .. ", " .. z, thePlayer, 255, 194, 14)
+		outputChatBox("Pozíció: " .. x .. ", " .. y .. ", " .. z, thePlayer, 255, 194, 14)
 		outputChatBox("Forgatás: " .. rotation, thePlayer, 255, 194, 14)
-		outputChatBox("Dimenzio: " .. dimension, thePlayer, 255, 194, 14)
+		outputChatBox("Dimenzió: " .. dimension, thePlayer, 255, 194, 14)
 		outputChatBox("Interior: " .. interior, thePlayer, 255, 194, 14)
 	end
 end
@@ -162,7 +162,7 @@ addCommandHandler("fixvehs", fixAllVehicles)
 function fixPlayerVehicle(thePlayer, commandName, target)
 	if exports.global:isPlayerSuperAdmin(thePlayer) then
 		if not (target) then
-			outputChatBox("Parancs: /" .. commandName .. " [Partial Player Nick]", thePlayer, 255, 194, 14)
+			outputChatBox("Parancs: /" .. commandName .. " [Név/ID]", thePlayer, 255, 194, 14)
 		else
 			local username = getPlayerName(thePlayer)
 			local targetPlayer, targetPlayerName = exports.global:findPlayerByPartialNick(thePlayer, target)
@@ -170,7 +170,7 @@ function fixPlayerVehicle(thePlayer, commandName, target)
 			if targetPlayer then
 				local logged = getElementData(targetPlayer, "loggedin")
 				if (logged==0) then
-					outputChatBox("Játékos nem online", thePlayer, 255, 0, 0)
+					outputChatBox("Játékos nem online.", thePlayer, 255, 0, 0)
 				else
 					local veh = getPedOccupiedVehicle(targetPlayer)
 					if (veh) then
@@ -203,7 +203,7 @@ addCommandHandler("fixveh", fixPlayerVehicle, false, false)
 function fixPlayerVehicleVisual(thePlayer, commandName, target)
 	if (exports.global:isPlayerHeadAdmin(thePlayer) or exports.global:isPlayerHeadAdmin(thePlayer)) then
 		if not (target) then
-			outputChatBox("Parancs: /" .. commandName .. " [Partial Player Nick]", thePlayer, 255, 194, 14)
+			outputChatBox("Parancs: /" .. commandName .. " [Név/ID]", thePlayer, 255, 194, 14)
 		else
 			local username = getPlayerName(thePlayer)
 			local targetPlayer, targetPlayerName = exports.global:findPlayerByPartialNick(thePlayer, target)
@@ -219,10 +219,10 @@ function fixPlayerVehicleVisual(thePlayer, commandName, target)
 						fixVehicle(veh)
 						setElementHealth(veh, health)
 						exports.logs:dbLog(thePlayer, 6, { targetPlayer, veh  }, "FIXVEHVIS" )
-						outputChatBox("You repaired " .. targetPlayerName .. "'s vehicle visually.", thePlayer)
-						outputChatBox("Your vehicle was visually repaired by admin " .. username .. ".", targetPlayer)
+						outputChatBox("Megjavítottad " .. targetPlayerName .. " járművének a kinézetét.", thePlayer)
+						outputChatBox("Megjavította " .. username .. " a járműved kinézetét.", targetPlayer)
 					else
-						outputChatBox("That player is not in a vehicle.", thePlayer, 255, 0, 0)
+						outputChatBox("Ez a játékos nincs belépve.", thePlayer, 255, 0, 0)
 					end
 				end
 			end
@@ -262,16 +262,16 @@ function enterCar(thePlayer, commandName, targetPlayerName, targetVehicle, seat)
 						local occupant = getVehicleOccupant(theVehicle, seat)
 						if occupant then
 							removePedFromVehicle(occupant)
-							outputChatBox("Admin " .. getPlayerName(thePlayer):gsub("_", " ") .. " has put " .. targetPlayerName .. " onto your seat.", occupant)
+							outputChatBox("Admin " .. getPlayerName(thePlayer):gsub("_", " ") .. " berakta " .. targetPlayerName .. " az ülésedbe.", occupant)
 							exports['anticheat-system']:changeProtectedElementDataEx(occupant, "realinvehicle", 0, false)
 						end
 						
 						if warpPedIntoVehicle2(targetPlayer, theVehicle, seat) then
 							
-							outputChatBox("Admin " .. getPlayerName(thePlayer):gsub("_", " ") .. " has warped you into this " .. getVehicleName(theVehicle) .. ".", targetPlayer)
-							outputChatBox("You warped " .. targetPlayerName .. " into " .. getVehicleName(theVehicle) .. " #" .. targetVehicle .. ".", targetPlayer)
+							outputChatBox("Admin " .. getPlayerName(thePlayer):gsub("_", " ") .. " berakott ebbe " .. getVehicleName(theVehicle) .. ".", targetPlayer)
+							outputChatBox("Beraktad " .. targetPlayerName .. " a " .. getVehicleName(theVehicle) .. " kocsiba" .. targetVehicle .. ".", targetPlayer)
 						else
-							outputChatBox("Unable to warp " .. targetPlayerName .. " into " .. getVehicleName(theVehicle) .. " #" .. targetVehicle .. ".", thePlayer, 255, 0, 0)
+							outputChatBox("Nem lehet " .. targetPlayerName .. " beletenni " .. getVehicleName(theVehicle) .. " a kocsiba" .. targetVehicle .. ".", thePlayer, 255, 0, 0)
 						end
 					else
 						local found = false
@@ -281,21 +281,21 @@ function enterCar(thePlayer, commandName, targetPlayerName, targetVehicle, seat)
 							if not occupant then
 								found = true
 								if warpPedIntoVehicle2(targetPlayer, theVehicle, seat) then
-									outputChatBox("Admin " .. getPlayerName(thePlayer):gsub("_", " ") .. " has warped you into this " .. getVehicleName(theVehicle) .. ".", targetPlayer)
-									outputChatBox("You warped " .. targetPlayerName .. " into " .. getVehicleName(theVehicle) .. " #" .. targetVehicle .. ".", targetPlayer)
+									outputChatBox("Admin " .. getPlayerName(thePlayer):gsub("_", " ") .. " berakott " .. getVehicleName(theVehicle) .. ".", targetPlayer)
+									outputChatBox("Betetted " .. targetPlayerName .. " a " .. getVehicleName(theVehicle) .. " kocsiba" .. targetVehicle .. ".", targetPlayer)
 								else
-									outputChatBox("Unable to warp " .. targetPlayerName .. " into " .. getVehicleName(theVehicle) .. " #" .. targetVehicle .. ".", thePlayer, 255, 0, 0)
+									outputChatBox("Nem lehet " .. targetPlayerName .. " beletenni " .. getVehicleName(theVehicle) .. " kocsiba" .. targetVehicle .. ".", thePlayer, 255, 0, 0)
 								end
 								break
 							end
 						end
 						
 						if not found then
-							outputChatBox("No free seats.", thePlayer, 255, 0, 0)
+							outputChatBox("Nincs üres ülés.", thePlayer, 255, 0, 0)
 						end
 					end
 				else
-					outputChatBox("Vehicle not found", thePlayer, 255, 0, 0)
+					outputChatBox("Nincs ilyen jármű.", thePlayer, 255, 0, 0)
 				end
 			end
 		else
@@ -310,7 +310,7 @@ function respawnAllVehicles(thePlayer, commandName, timeToRespawn)
 	if (exports.global:isPlayerSuperAdmin(thePlayer)) then
 		if commandName then
 			if isTimer(respawnTimer) then
-				outputChatBox("Már van egy Respawn parancs ami fut, /respawnstop megállithatod", thePlayer, 255, 0, 0)
+				outputChatBox("Már van egy respawn parancs ami fut, /respawnstop megállithatod", thePlayer, 255, 0, 0)
 			else
 				timeToRespawn = tonumber(timeToRespawn) or 30
 				timeToRespawn = timeToRespawn < 10 and 10 or timeToRespawn
@@ -557,7 +557,7 @@ function gotoCar(thePlayer, commandName, id)
 				exports.logs:dbLog(thePlayer, 6, theVehicle, "GOTOCAR")
 				outputChatBox("Sikeresen oda teleportáltál a kocsihoz.", thePlayer, 255, 194, 14)
 			else
-				outputChatBox("Hibás Kocsi id.", thePlayer, 255, 0, 0)
+				outputChatBox("Hibás Kocsi ID.", thePlayer, 255, 0, 0)
 			end
 		end
 	end
@@ -591,7 +591,7 @@ function getCar(thePlayer, commandName, id)
 				exports.logs:dbLog(thePlayer, 6, theVehicle, "GETCAR")
 				outputChatBox("Sikeresen magadhoz teleportáltad.", thePlayer, 255, 194, 14)
 			else
-				outputChatBox("Hibás Kocsi id.", thePlayer, 255, 0, 0)
+				outputChatBox("Hibás Kocsi ID.", thePlayer, 255, 0, 0)
 			end
 		end
 	end
@@ -710,13 +710,13 @@ function createTempVehicle(thePlayer, commandName, ...)
 					exports['anticheat-system']:changeProtectedElementDataEx(veh, "owner", -1, false)
 					exports['anticheat-system']:changeProtectedElementDataEx(veh, "job", 0, false)
 					exports['anticheat-system']:changeProtectedElementDataEx(veh, "handbrake", 0, false)
-					outputChatBox(getVehicleName(veh) .. " spawned with TEMP ID " .. dbid .. ".", thePlayer, 255, 194, 14)
+					outputChatBox(getVehicleName(veh) .. " spawnolva ideiglenes ID " .. dbid .. ".", thePlayer, 255, 194, 14)
 					
 					exports['vehicle-interiors']:add( veh )
-					exports.logs:dbLog(thePlayer, 6, thePlayer, "VEH ".. vehicleID .. " created with ID " .. dbid)
+					exports.logs:dbLog(thePlayer, 6, thePlayer, "Jármű ".. vehicleID .. " létrehozva ID " .. dbid)
 				end
 			else
-				outputChatBox("Invalid Vehicle ID.", thePlayer, 255, 0, 0)
+				outputChatBox("Hibás jármű ID.", thePlayer, 255, 0, 0)
 			end
 		end
 	end
