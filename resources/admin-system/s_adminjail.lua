@@ -3,7 +3,7 @@ function jailPlayer(thePlayer, commandName, who, minutes, ...)
 	if (exports.global:isPlayerAdmin(thePlayer)) then
 		local minutes = tonumber(minutes) and math.ceil(tonumber(minutes))
 		if not (who) or not (minutes) or not (...) or (minutes<1) then
-			outputChatBox("SYNTAX: /" .. commandName .. " [Játékosnév/ID] [Perc(>=1) 999=max] [Oka]", thePlayer, 255, 194, 14)
+			outputChatBox("SYNTAX: /" .. commandName .. " [Játékosnév/ID] [Perc(>=1) 999=max] [Indok:]", thePlayer, 255, 194, 14)
 		else
 			local targetPlayer, targetPlayerName = exports.global:findPlayerByPartialNick(thePlayer, who)
 			local reason = table.concat({...}, " ")
@@ -178,7 +178,7 @@ function jailedPlayers(thePlayer, commandName)
 		end
 		
 		if count == 0 then
-			outputChatBox("Nincs Jailban.", thePlayer, 255, 194, 15)
+			outputChatBox("Nincs börtönben!", thePlayer, 255, 194, 15)
 		end
 	end
 end

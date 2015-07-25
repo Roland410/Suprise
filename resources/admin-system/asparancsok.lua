@@ -4,20 +4,17 @@
 
 
 
-function adminfelhivas(thePlayer, commandName, ...)--by silenthunter
+function adminfelhivas(thePlayer, commandName, ...)--by James
 	if (exports.global:isPlayerAdmin(thePlayer)) then--ha Admin
 		if not (...) then
-			outputChatBox("HASZNÁLD: /asay [Admin Üzenet]", thePlayer, 255, 194, 15)
+			outputChatBox("HASZNÁLD: /asay [Admin Üzenet]", thePlayer, 0, 255, 250)
 		else
 			local adminrang = exports.global:getPlayerAdminTitle(thePlayer)
 			
 			message = table.concat({...}, " ")
 			local playerName = getPlayerName(thePlayer)
 			
-			exports.global:sendMessageToAdmins(playerName .. "Admin üzenete: ", 0, 250, 0)
-			outputChatBox("================== [ Admin Felhívás ]==================", getRootElement(), 255, 255, 0)
-			outputChatBox(adminrang .. ": ".. playerName .. ":".. message, getRootElement(), 0, 250, 0,true)
-			outputChatBox("================== [ Admin Felhívás ]==================", getRootElement(), 255, 255, 0)
+			outputChatBox(adminrang .. " ".. playerName .. ": ".. message, getRootElement(), 255, 0, 0,true)
 		end
 	end
 end
@@ -35,22 +32,14 @@ function adminDuty(thePlayer, commandName)
 		
 		if (adminduty==0) then
 			exports['anticheat-system']:changeProtectedElementDataEx(thePlayer, "adminduty", 1)
-			outputChatBox("Admin szolgálatba léptél.", thePlayer, 0, 255, 0)
 			exports.global:sendMessageToAdmins("AdmDuty: " .. username .. " szolgálatba lépett.")
-			outputChatBox("Beléptél az adminszolgálatba.", thePlayer, 0, 255, 0)
-			outputChatBox("================== [ Admin szolgálat ]==================", getRootElement(), 255, 255, 0)
-			outputChatBox(adminTitle .. " " .. username .. " Szolgálatba lépett " , getRootElement(), 0, 255, 250)
-			outputChatBox("================== [ Admin szolgálat ]==================", getRootElement(), 255, 255, 0)
+			outputChatBox(adminTitle .. " " .. username .. " adminszolgálatba lépett." , getRootElement(), 0, 255, 250)
 			exports.global:updateNametagColor(thePlayer)
 		elseif (adminduty==1) then
 			exports['anticheat-system']:changeProtectedElementDataEx(thePlayer, "adminduty", 0)
-			outputChatBox("Kiléptél az Admin szolgálatból.", thePlayer, 255, 0, 0)
 			exports.global:updateNametagColor(thePlayer)
 			exports.global:sendMessageToAdmins("AdmDuty: " .. username .. " kilépett a szolgálatból.")
-			outputChatBox("Kilépett az adminszolgálatból.", thePlayer, 255, 0, 0)
-			outputChatBox("================== [ Admin szolgálat ]==================", getRootElement(), 255, 255, 0)
-			outputChatBox(adminTitle .. " " .. username .. " Kilépett a szolgálatból " , getRootElement(), 0, 255, 250)
-			outputChatBox("================== [ Admin szolgálat ]==================", getRootElement(), 255, 255, 0)
+			outputChatBox(adminTitle .. " " .. username .. " kilépett az adminszolgálatból." , getRootElement(), 0, 255, 250)
 		end
 		mysql:query_free("UPDATE accounts SET adminduty=" .. mysql:escape_string(getElementData(thePlayer, "adminduty")) .. " WHERE id = " .. mysql:escape_string(getElementData(thePlayer, "gameaccountid")) )
 	end
