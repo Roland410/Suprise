@@ -55,7 +55,8 @@ function LoginScreen_openLoginScreen()
 	guiEditSetMaxLength(tPassword,64)
 	addEventHandler("onClientGUIAccepted", tPassword,LoginScreen_validateLogin,false)
 	guiSetAlpha(tPassword,0.2)
-	
+	-- Remember me Check Box.
+	chkRememberLogin = guiCreateCheckBox(143,248,67,22,"",false,false,wLogin)
 	guiSetText(tUsername, tostring( loadSavedData("username", "") ))
 	local tHash = tostring( loadSavedData("hashcode", "") )
 	guiSetText(tPassword,  tHash)
