@@ -302,22 +302,22 @@ end
 
 function pilota()
    zene = playSound( "Malev.mp3", true)
-   setTimer ( uzenet, 65000, 1)
+   setTimer ( uzenet, 600, 1)
 end
 
 function uzenet ()
 
 outputChatBox("Leszállást hamarosan megkezdjük(kb 10 Másodperc)", 255, 0, 0)
 stopSound (zene)
-setTimer ( kirakrepter, 11000, 1)
+setTimer ( kirakrepter, 66000, 1)
 end
 
 function kirakrepter()
     
-setElementPosition ( getLocalPlayer(), -2551.8000488281, 751.59997558594, -73.199996948242 )
-setElementInterior ( getLocalPlayer(), 11 )
-	setElementDimension ( getLocalPlayer(), 791 )
-	outputChatBox("Üdvözöljük a Fly-City Reptéren", 255, 0, 0)
+setElementPosition ( getLocalPlayer(), -1623.0888671875, -2696.27734375, 48.5390625 )
+setElementInterior ( getLocalPlayer(), 0 )
+	setElementDimension ( getLocalPlayer(), 0 )
+	outputChatBox("Üdvözöljük a SupriseMTA városában!", 255, 0, 0)
 end
 --addCommandHandler ( "greet", kirakrepter )
 
