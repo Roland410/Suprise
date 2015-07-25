@@ -138,7 +138,7 @@ function makePlayerAdmin(thePlayer, commandName, who, rank)
 		end
 	end
 end
-addCommandHandler("makeadmin", makePlayerAdmin, false, false)
+addCommandHandler("setalevel", makePlayerAdmin, false, false)
 
 
 function deleteVehicle(thePlayer, commandName, id)
@@ -167,7 +167,7 @@ function deleteVehicle(thePlayer, commandName, id)
 				end
 				outputChatBox("Vehicle deleted.", thePlayer)
 			else
-				outputChatBox("No vehicles with that ID found.", thePlayer, 255, 0, 0)
+				outputChatBox("Nem találtam ezt a jármű ID-t!", thePlayer, 0, 0, 240)
 			end
 		end
 	end

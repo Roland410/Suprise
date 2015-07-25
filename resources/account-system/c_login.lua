@@ -29,7 +29,7 @@ addEventHandler("accounts:login:request", getRootElement(),
 local wLogin, lUsername, tUsername, lInfo, lPassword, tPassword, chkRememberLogin, bLogin, bRegister, bTour, updateTimer = nil
 function LoginScreen_openLoginScreen()
 		local scr = {guiGetScreenSize() }
-		local w, h = 305, 420
+		local w, h = 700, 450
 		local x, y = (scr[1]/2)-(w/2), (scr[2]/2)-(h/2)
 		
 		
@@ -38,30 +38,23 @@ function LoginScreen_openLoginScreen()
 	wLogin = guiCreateStaticImage(426,221,425,308,"gui/kep.png",false)
 	
 	-- Login Button.
-	bLogin = guiCreateButton(135,227,62,25,"",false,wLogin)
+	bLogin = guiCreateButton(148,227,123,33,"",false,wLogin)
 	guiSetFont(bLogin, "default-bold-small")
 	addEventHandler("onClientGUIClick", bLogin, LoginScreen_validateLogin,false)
 	guiSetAlpha(bLogin,0.2)
 	-- Username Memo.
-	tUsername = guiCreateEdit(130,118,148,34, "Felhasználónév", false, wLogin)
+	tUsername = guiCreateEdit(112,110,195,34, "Felhasználónév", false, wLogin)
 	guiSetFont(tUsername, "default-bold-small")
 	guiEditSetMaxLength(tUsername, 32)
 	addEventHandler("onClientGUIAccepted", tUsername,LoginScreen_validateLogin,false)
 	guiSetAlpha(tUsername,0.2)
 	-- Password Memo.
-	tPassword = guiCreateEdit(130,188,148,34, "Jelszó", false, wLogin)
+	tPassword = guiCreateEdit(112,183,195,34, "Jelszó", false, wLogin)
 	guiSetFont(tPassword, "default-bold-small")
 	guiEditSetMasked(tPassword,true)
 	guiEditSetMaxLength(tPassword,64)
 	addEventHandler("onClientGUIAccepted", tPassword,LoginScreen_validateLogin,false)
 	guiSetAlpha(tPassword,0.2)
-	-- Remember me Check Box.
-	chkRememberLogin = guiCreateCheckBox(143,248,67,22,"",false,false,wLogin)
-	-- Register Button.
-	bRegister = guiCreateButton(200,227,82,25,"",false,wLogin)
-	guiSetFont(bRegister, "default-bold-small")
-	addEventHandler("onClientGUIClick", bRegister,LoginScreen_startRegister,false)
-	guiSetAlpha(bRegister,0.2)--átlátszoság
 	
 	guiSetText(tUsername, tostring( loadSavedData("username", "") ))
 	local tHash = tostring( loadSavedData("hashcode", "") )

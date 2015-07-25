@@ -204,9 +204,9 @@ function spawnCharacter(characterID)
 			local incVal = getElementData(client, "playerid")
 				
 			setElementDimension(client, 55000+incVal)
-			setElementInterior(client, 6)
-			setCameraInterior(client, 6)
-			setElementPosition(client, 263.821807, 77.848365, 1001.0390625)
+			setElementInterior(client, 0)
+			setCameraInterior(client, 0)
+			setElementPosition(client, -1621.927734375, -2696.0234375, 48.5390625)
 			setPedRotation(client, 267.438446)
 						
 			setElementDataEx(client, "jailserved", 0, false)
@@ -369,8 +369,8 @@ function spawnCharacter(characterID)
 		
 		--local motd = getElementData(getRootElement(), "account:motd") or ""
 		--outputChatBox("MOTD: " .. motd, source, 255, 255, 0)
-		outputChatBox("Kedves " ..getPlayerName(client).."! Üdvözlünk a FLY MTA szeren!" , source, 0, 198, 0)
-		outputChatBox("Kellemes időtöltés és sok sok élményt kívánunk!" , source, 0, 198, 0)
+		outputChatBox("Kedves " ..getPlayerName(client).."! Üdvözöllek a SupriseMTA szerverén!" , source, 0, 198, 0)
+		outputChatBox("Kellemes időtöltést kívánunk!" , source, 0, 198, 0)
 		if ((getElementData(source, "adminlevel") or 0) > 0) then
 			--local amotd = getElementData(getRootElement(), "account:amotd") or ""
 			--outputChatBox("Admin MOTD: " .. amotd, source, 135, 206, 250)
@@ -432,8 +432,8 @@ function Characters_onCharacterChange()
 	local clientAccountID = getElementDataEx(client, "account:id") or -1
 	
 	setElementInterior(client, 0)
-	setElementDimension(client, 1)
-	setElementPosition(client, -26.8828125, 2320.951171875, 24.303373336792)
+	setElementDimension(client, 0)
+	setElementPosition(client, -1621.927734375, -2696.0234375, 48.5390625)
 	exports.logs:dbLog("ac"..tostring(clientAccountID), 27, { "ac"..tostring(clientAccountID), client } , "Went to character selection" )
 end
 addEventHandler("accounts:characters:change", getRootElement(), Characters_onCharacterChange)
