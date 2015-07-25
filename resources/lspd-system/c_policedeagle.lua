@@ -77,7 +77,7 @@ function weaponAim(target)
 				
 				if (mode==2) then
 					actualspeed = exports.global:getVehicleVelocity(target)
-					outputChatBox(getVehicleName(target) .. " clocked in at " .. actualspeed .. " km/h.", 255, 194, 14)
+					outputChatBox(getVehicleName(target) .. " sebessége: " .. actualspeed .. " km/h.", 255, 194, 14)
 				end
 			end
 		end
