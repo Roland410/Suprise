@@ -296,33 +296,14 @@ function newCharacter_attemptCreateCharacter()
 	guiSetEnabled(gui["btnCancel"], false)
 	guiSetEnabled(gui["btnCreateChar"], false)
 	guiSetEnabled(gui["_root"], false)
-	setTimer ( pilota, 3000, 1)
-	triggerServerEvent("accounts:characters:new", getLocalPlayer(), characterName, characterDescription, race, gender, skin, scrollHeight, scrWeight, scrAge, languageselected )
-end
-
-function pilota()
-   zene = playSound( "Malev.mp3", true)
-   setTimer ( uzenet, 600, 1)
-end
-
-function uzenet ()
-
-outputChatBox("Leszállást hamarosan megkezdjük(kb 10 Másodperc)", 255, 0, 0)
-stopSound (zene)
-setTimer ( kirakrepter, 66000, 1)
-end
-
-function kirakrepter()
-    
-setElementPosition ( getLocalPlayer(), -1623.0888671875, -2696.27734375, 48.5390625 )
-setElementInterior ( getLocalPlayer(), 0 )
+	--Spawnra rakás
+	setElementPosition ( getLocalPlayer(), -1623.0888671875, -2696.27734375, 48.5390625 )
+	setElementInterior ( getLocalPlayer(), 0 )
 	setElementDimension ( getLocalPlayer(), 0 )
 	outputChatBox("Üdvözöljük a SupriseMTA városában!", 255, 0, 0)
+	--Spawnra rakás vége
+	triggerServerEvent("accounts:characters:new", getLocalPlayer(), characterName, characterDescription, race, gender, skin, scrollHeight, scrWeight, scrAge, languageselected )
 end
---addCommandHandler ( "greet", kirakrepter )
-
-
-
 
 function newCharacter_response(statusID, statusSubID)
 	if (statusID == 1) then
