@@ -196,10 +196,10 @@ function spawnCharacter(characterID)
 		local jailed_reason = getElementData(client, "jailreason")
 		
 		if jailed then
-			outputChatBox("You still have " .. jailed_time .. " minute(s) to serve of your admin jail sentence.", client, 255, 0, 0)
+			outputChatBox("Még " .. jailed_time .. " perc van hátra a börtönből.", client, 255, 0, 0)
 			outputChatBox(" ", client)
-			outputChatBox("You were jailed by: " .. jailed_by .. ".", client, 255, 0, 0)
-			outputChatBox("Reason: " .. jailed_reason, client, 255, 0, 0)
+			outputChatBox("Börtönbe rakott: " .. jailed_by .. ".", client, 255, 0, 0)
+			outputChatBox("Indok: " .. jailed_reason, client, 255, 0, 0)
 				
 			local incVal = getElementData(client, "playerid")
 				
@@ -229,7 +229,7 @@ function spawnCharacter(characterID)
 			setElementInterior(client, 6)
 			setCameraInterior(client, 6)
 		elseif tonumber(characterData["pdjail"]) == 1 then -- PD JAIL
-			outputChatBox("You still have " .. tonumber(characterData["pdjail_time"]) .. " minute(s) to serve of your state jail sentence.", client, 255, 0, 0)
+			outputChatBox("Még " .. tonumber(characterData["pdjail_time"]) .. " perc van hátra a börtönből.", client, 255, 0, 0)
 			setElementDataEx(client, "pd.jailserved", 0, false)
 			setElementDataEx(client, "pd.jailtime", tonumber(characterData["pdjail_time"])+1, false)
 			setElementDataEx(client, "pd.jailstation", tonumber(characterData["pdjail_station"]), false)
@@ -346,7 +346,7 @@ function spawnCharacter(characterID)
 		-- blindfolds
 		if (tonumber(characterData["blindfold"])==1) then
 			setElementDataEx(client, "blindfold", 1)
-			outputChatBox("Your character is blindfolded. If this was an OOC action, please contact an administrator via F2.", client, 255, 194, 15)
+			outputChatBox("A karaktered szeme be van kötve! Ha szerinted ok nélkül van bekötve, keress fel egy admint! (F2)", client, 255, 194, 15)
 			fadeCamera(client, false)
 		else
 			fadeCamera(client, true, 2)
@@ -402,7 +402,7 @@ function spawnCharacter(characterID)
 			
 			if not foundPackage then
 				triggerEvent("duty:offduty", client)
-				outputChatBox("You don't have access to the duty you are using anymore - thus, removed.", client, 255, 0, 0)
+				outputChatBox("Nincs engedélyed a szolgálathoz, mert törölve lett.", client, 255, 0, 0)
 			end
 		end
 		triggerEvent("social:character", client)
@@ -411,7 +411,7 @@ end
 addEventHandler("accounts:characters:spawn", getRootElement(), spawnCharacter)
 
 function Characters_onCharacterChange()
-	triggerEvent("savePlayer", client, "Change Character")
+	triggerEvent("savePlayer", client, "Karakterváltás")
 	triggerEvent('setDrunkness', client, 0)
 	setElementDataEx(client, "alcohollevel", 0, true)
 	
@@ -434,7 +434,7 @@ function Characters_onCharacterChange()
 	setElementInterior(client, 0)
 	setElementDimension(client, 0)
 	setElementPosition(client, -1621.927734375, -2696.0234375, 48.5390625)
-	exports.logs:dbLog("ac"..tostring(clientAccountID), 27, { "ac"..tostring(clientAccountID), client } , "Went to character selection" )
+	exports.logs:dbLog("ac"..tostring(clientAccountID), 27, { "ac"..tostring(clientAccountID), client } , "Karakterválasztóba lépett." )
 end
 addEventHandler("accounts:characters:change", getRootElement(), Characters_onCharacterChange)
 
