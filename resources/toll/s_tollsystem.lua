@@ -258,23 +258,23 @@ function testToggle(thePlayer, commandName, gateID, silent)
 			local tollKey = getElementData(thePed, "toll:key")
 			if tollKey and tollKey == gateID then
 				if first then
-					exports['chat-system']:departmentradio(thePed, "d", "10-4, locking down "..tollElementsName[gateID]..", out.")
+					exports['chat-system']:departmentradio(thePed, "d", "10-4, lezárom a "..tollElementsName[gateID].." kaput, vége.")
 					first = false
 				end
-				processRadio(thePed, "Comms to the units at "..tollElementsName[gateID]..", don't let anyone through, out!", thePed)
+				processRadio(thePed, "Központ az egységeknek "..tollElementsName[gateID].." kapun ne engedjenek át senkit!", thePed)
 			end
 		end
 	else
 		local first = true
-		exports['chat-system']:departmentradio(thePlayer, "d", "Please open the "..tollElementsName[gateID].." tolls, how copy?, over.")
+		exports['chat-system']:departmentradio(thePlayer, "d", "Kérem nyissák ki a "..tollElementsName[gateID].." kaput, vége.")
 		for _, thePed in ipairs(getElementsByType('ped')) do
 			local tollKey = getElementData(thePed, "toll:key")
 			if tollKey and tollKey == gateID then
 				if first then
-					exports['chat-system']:departmentradio(thePed, "d", "10-4, opening up "..tollElementsName[gateID]..", out.")
+					exports['chat-system']:departmentradio(thePed, "d", "10-4, nyitom a  "..tollElementsName[gateID].." kaput, vége.")
 					first = false
 				end
-				processRadio(thePed, "Comms to the units at "..tollElementsName[gateID]..", open the toll booth again, out!", thePed)
+				processRadio(thePed, "Központ az egységeknek "..tollElementsName[gateID].." kaput nyissák meg, vége!", thePed)
 			end
 		end
 	end
